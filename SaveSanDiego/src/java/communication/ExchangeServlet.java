@@ -6,8 +6,10 @@ package communication;
  * and open the template in the editor.
  */
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -53,8 +55,8 @@ public class ExchangeServlet extends HttpServlet {
                 String subject = request.getParameter("name") + " Wants You to Help Save San Diego"; //will get this based on location
                 String message = request.getParameter("message");
                 String representative = locationRepresentativeHash.get(request.getParameter("location"));
-                message="Dear "+representative+",\n\n"+message;
-                message = message+"\n\nSincerely,\n\n"+request.getParameter("name");
+                message = "Dear " + representative + ",\n\n" + message;
+                message = message + "\n\nSincerely,\n\n" + request.getParameter("name");
                 GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
             } else if (command.equals("getAreaEmail")) {
                 //return supervisor name and form letter
@@ -77,7 +79,24 @@ public class ExchangeServlet extends HttpServlet {
             } else if (command.equals("getAreaReportCard")) {
 
             } else if (command.equals("getText")) {
-                //return link to text file
+                String user = request.getParameter("user");
+
+                //write text file
+                String pathRoot = this.getServletContext().getRealPath("/") + "/data/";
+
+                String message = request.getParameter("message");
+                String representative = locationRepresentativeHash.get(request.getParameter("location"));
+                message = "Dear " + representative + ",\n\n" + message;
+                message = message + "\n\nSincerely,\n\n" + request.getParameter("name");
+                File outFile = new File(pathRoot+user+".txt");
+                FileWriter fw = new FileWriter(outFile);
+                BufferedWriter bw = new BufferedWriter(fw);
+                bw.write(message);
+                bw.close();
+                fw.close();
+                JSONObject toReturn = new JSONObject();
+                toReturn.put("filePath", "data/" + user + ".txt");
+                out.write(toReturn.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();

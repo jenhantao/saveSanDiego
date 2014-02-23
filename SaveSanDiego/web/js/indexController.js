@@ -48,6 +48,19 @@ $(document).ready(function() {
         });
     });
 
+    $('#textButton').click(function() {
+        var name = $('#nameInput').val();
+        var message = $('#messageText').val();
+        var user = getCookie("user");
+        var location = $('#areaSelect').val();
+        //send
+        var toSend = {"command": "getText", "user": user, "name": name, "location": location, "message": message};
+        $.get("ExchangeServlet", toSend, function(data) {
+            window.location =data["filePath"];
+        });
+    });
+
+
     //cookie functions
     function setCookie(c_name, value, exdays) {
         var exdate = new Date();
@@ -91,5 +104,6 @@ $(document).ready(function() {
     }
 
     setCookie("user", generateID(), 1000);
+    $('#textButton').attr("href", getCookie("user") + ".txt");
 
 });
