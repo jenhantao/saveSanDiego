@@ -52,6 +52,9 @@ public class ExchangeServlet extends HttpServlet {
                 String recipient = locationEmailHash.get(request.getParameter("location"));
                 String subject = request.getParameter("name") + " Wants You to Help Save San Diego"; //will get this based on location
                 String message = request.getParameter("message");
+                String representative = locationRepresentativeHash.get(request.getParameter("location"));
+                message="Dear "+representative+",\n\n"+message;
+                message = message+"\n\nSincerely,\n\n"+request.getParameter("name");
                 GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
             } else if (command.equals("getAreaEmail")) {
                 //return supervisor name and form letter
