@@ -48,10 +48,10 @@ public class ExchangeServlet extends HttpServlet {
         try {
             out = response.getWriter();
             if (command.equals("sendMail")) {
-                String recipient = locationEmailHash.get(request.getParameter("location"));
+                String recipient = locationEmailHash.get(request.getParameter("district"));
                 String subject = request.getParameter("name") + " Wants You to Help Save San Diego"; //will get this based on location
                 String message = request.getParameter("message");
-                String representative = locationRepresentativeHash.get(request.getParameter("location"));
+                String representative = locationRepresentativeHash.get(request.getParameter("district"));
                 message = "Dear " + representative + ",\n\n" + message;
                 message = message + "\n\nSincerely,\n\n" + request.getParameter("name");
                 GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
@@ -59,6 +59,7 @@ public class ExchangeServlet extends HttpServlet {
                 //return supervisor name and form letter
                 String pathRoot = this.getServletContext().getRealPath("/") + "/data/text/";
                 String location = request.getParameter("location");
+                String district = request.getParameter("district");
                 String filePath = pathRoot+location + ".txt";
                 File file = new File(filePath);
                 BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()));
@@ -68,7 +69,10 @@ public class ExchangeServlet extends HttpServlet {
                     message = message + line + "\n";
                     line = reader.readLine();
                 }
-                String representative = locationRepresentativeHash.get(location);
+                message = "As a resident of the "+location +" subregional area in San Diego County and as your constituent, I am deeply concerned about the health and well being of my family and my community’s health. With chronic diseases such as cancer, heart disease, type 2 diabetes, and pulmonary disease affecting so many of those around us, we need real reform and initiatives to put a stop to these terrible diseases. Some of the statistics from my subregional area I have found particularly concerning are:" +
+                        message
+                        +"These chronic diseases affect way too many San Diegans and cost our cities and county too much. Therefore, we must work quickly to enact initiatives that encourage San Diegans to eat healthier, be active, and limit tobacco use. The current trends of San Diego’s health are unsustainable for a healthy, safe, and thriving San Diego. We cannot stand idly by as the health of our neighbors suffer; we must take action now.";
+                String representative = locationRepresentativeHash.get(district);
                 JSONObject toReturn = new JSONObject();
                 toReturn.put("representative", representative);
                 toReturn.put("message", message);
@@ -82,7 +86,7 @@ public class ExchangeServlet extends HttpServlet {
                 String pathRoot = this.getServletContext().getRealPath("/") + "/data/";
 
                 String message = request.getParameter("message");
-                String representative = locationRepresentativeHash.get(request.getParameter("location"));
+                String representative = locationRepresentativeHash.get(request.getParameter("district"));
                 message = "Dear " + representative + ",\n\n" + message;
                 message = message + "\n\nSincerely,\n\n" + request.getParameter("name");
                 File outFile = new File(pathRoot + user + ".txt");

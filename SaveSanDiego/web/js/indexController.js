@@ -1,5 +1,6 @@
 $(document).ready(function() {
     //update the date
+    var areaMap = {"Pendleton": "District5", "Fallbrook": "District5", "Pauma": "District5", "PalomarJulian": "District5", "ValleyCenter": "District5", "Vista": "District5", "Oceanside": "District5", "Carlsbad": "District5", "SanMarcos": "District5", "SanDieguito": "District3", "Escondido": "District3", "NorthSanDiego": "District3", "DelMar_Mira Mesa": "District3", "University": "District3", "Miramar": "District3", "Elliott-Navajo": "District3", "Poway": "District2", "Ramona": "District2", "Laguna-Pine Valley": "District2", "MountainEmpire": "District2", "Lakeside": "District2", "Alpine": "District2", "HarbisonCrest": "District2", "Santee": "District2", "ElCajon": "District2", "LaMesa": "District2", "SpringValley": "District2", "LemonGrove": "District2", "Coastal": "District4", "KearnyMesa": "District4", "Peninsula": "District4", "Mid City": "District4", "SoutheasternSanDiego": "District4", "Coronado": "District1", "Sweetwater": "District1", "ChulaVista": "District1", "SouthBay": "District1", "NationalCity": "District1", "CentralSanDiego": "District1"};
     var months = {0: "January",
         1: "February",
         2: "March",
@@ -27,8 +28,9 @@ $(document).ready(function() {
         var message = $('#messageText').val();
         var user = getCookie("user");
         var location = $('#areaSelect').val();
+        var district = areaMap[location]
         //send
-        var toSend = {"command": "sendMail", "user": user, "name": name, "location": location, "message": message};
+        var toSend = {"command": "sendMail", "user": user, "name": name, "location": location, "message": message, "district": district};
         $.get("ExchangeServlet", toSend, function() {
             //modal confirmation
         });
@@ -41,9 +43,10 @@ $(document).ready(function() {
 
     //event handler for location select
     $('#areaSelect').change(function() {
-        var area = $(this).val().replace(/ /g,'');
-        alert(area)
-        $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area}, function(data) {
+        var area = $(this).val().replace(/ /g, '');
+        var district = areaMap[area]
+
+        $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area, "district": district}, function(data) {
             $('#representativeName').text(data["representative"]);
             $('#messageText').val(data["message"]);
         });
@@ -53,11 +56,12 @@ $(document).ready(function() {
         var name = $('#nameInput').val();
         var message = $('#messageText').val();
         var user = getCookie("user");
-        var location = $('#areaSelect').val();
+        var location = $('#areaSelect').val().replace(/ /g, '');
+        var district = areaMap[location]
         //send
-        var toSend = {"command": "getText", "user": user, "name": name, "location": location, "message": message};
+        var toSend = {"command": "getText", "user": user, "name": name, "location": location, "message": message, "district": district};
         $.get("ExchangeServlet", toSend, function(data) {
-            window.location =data["filePath"];
+            window.location = data["filePath"];
         });
     });
 
