@@ -27,7 +27,7 @@ $(document).ready(function() {
         var name = $('#nameInput').val();
         var message = $('#messageText').val();
         var user = getCookie("user");
-        var location = $('#areaSelect').val();
+        var location = $('#areaSelect').val().replace(/ /g, '_');
         var district = areaMap[location]
         //send
         var toSend = {"command": "sendMail", "user": user, "name": name, "location": location, "message": message, "district": district};
@@ -43,7 +43,7 @@ $(document).ready(function() {
 
     //event handler for location select
     $('#areaSelect').change(function() {
-        var area = $(this).val().replace(/ /g, '');
+        var area = $(this).val().replace(/ /g, '_');
         var district = areaMap[area]
 
         $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area, "district": district}, function(data) {
@@ -56,16 +56,14 @@ $(document).ready(function() {
         var name = $('#nameInput').val();
         var message = $('#messageText').val();
         var user = getCookie("user");
-        var location = $('#areaSelect').val().replace(/ /g, '');
-        var district = areaMap[location]
+        var location = $('#areaSelect').val().replace(/ /g, '_');
+        var district = areaMap[location];
         //send
         var toSend = {"command": "getText", "user": user, "name": name, "location": location, "message": message, "district": district};
         $.get("ExchangeServlet", toSend, function(data) {
             window.location = data["filePath"];
         });
     });
-
-
     //cookie functions
     function setCookie(c_name, value, exdays) {
         var exdate = new Date();
@@ -109,6 +107,8 @@ $(document).ready(function() {
     }
 
     setCookie("user", generateID(), 1000);
+    var location = $('#areaSelect').val().replace(/ /g, '_');
+    setCookie("location", location, 1000);
     $('#textButton').attr("href", getCookie("user") + ".txt");
 
 });

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    
+    
     //cookie functions
     function setCookie(c_name, value, exdays) {
         var exdate = new Date();
@@ -32,4 +34,6 @@ $(document).ready(function() {
         date.setDate(date.getDate() - 1);
         document.cookie = escape(key) + '=;expires=' + date;
     }
+        alert(getCookie("location"))
+
 });
