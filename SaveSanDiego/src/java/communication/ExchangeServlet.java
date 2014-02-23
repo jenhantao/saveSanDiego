@@ -36,9 +36,6 @@ public class ExchangeServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        if (fileLocationHash == null) {
-            initFileLocations();
-        }
         if (locationRepresentativeHash == null) {
             initRepresentatives();
         }
@@ -60,9 +57,9 @@ public class ExchangeServlet extends HttpServlet {
                 GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
             } else if (command.equals("getAreaEmail")) {
                 //return supervisor name and form letter
+                String pathRoot = this.getServletContext().getRealPath("/") + "/data/text/";
                 String location = request.getParameter("location");
-                String filePath = fileLocationHash.get(location + "_report");
-                filePath = fileLocationHash.get(location + "_email");
+                String filePath = pathRoot+location + ".txt";
                 File file = new File(filePath);
                 BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()));
                 String message = "";
@@ -88,7 +85,7 @@ public class ExchangeServlet extends HttpServlet {
                 String representative = locationRepresentativeHash.get(request.getParameter("location"));
                 message = "Dear " + representative + ",\n\n" + message;
                 message = message + "\n\nSincerely,\n\n" + request.getParameter("name");
-                File outFile = new File(pathRoot+user+".txt");
+                File outFile = new File(pathRoot + user + ".txt");
                 FileWriter fw = new FileWriter(outFile);
                 BufferedWriter bw = new BufferedWriter(fw);
                 bw.write(message);
@@ -154,29 +151,27 @@ public class ExchangeServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void initFileLocations() {
-        String pathRoot = this.getServletContext().getRealPath("/") + "/WEB-INF/data/";
-        //key location_report/email_location
-        fileLocationHash = new HashMap();
-        fileLocationHash.put("area1_email", pathRoot + "test");
-        fileLocationHash.put("area2_email", pathRoot + "test");
-        fileLocationHash.put("area3_email", pathRoot + "test");
-    }
-
     private void initRepresentatives() {
         locationRepresentativeHash = new HashMap();
-        locationRepresentativeHash.put("area1", "test representative");
-        locationRepresentativeHash.put("area2", "test representative");
-        locationRepresentativeHash.put("area3", "test representative");
+        locationRepresentativeHash.put("test", "Jenhan Tao");
+        locationRepresentativeHash.put("District1", "Greg Cox");
+        locationRepresentativeHash.put("District2", "Dianne Jacob");
+        locationRepresentativeHash.put("District3", "Dave Roberts");
+        locationRepresentativeHash.put("District4", "Ron Roberts");
+        locationRepresentativeHash.put("District5", "Bill Horn");
+
     }
 
     private void initEmails() {
         locationEmailHash = new HashMap();
-        locationEmailHash.put("area1", "jenhantao@gmail.com");
-        locationEmailHash.put("area2", "justin.k.huang@gmail.com");
-        locationEmailHash.put("area3", "test representative");
+        locationEmailHash.put("District1", "greg.cox@sdcounty.ca.gov");
+        locationEmailHash.put("District2", "dianne.jacob@sdcounty.ca.gov");
+        locationEmailHash.put("District3", "dave.roberts@sdcounty.ca.gov");
+        locationEmailHash.put("District4", "ron-roberts@sdcounty.ca.gov");
+        locationEmailHash.put("District5", "bill.horn@sdcounty.ca.gov");
+        locationEmailHash.put("test", "jenhantao@gmail.com");
+
     }
-    private HashMap<String, String> fileLocationHash = null;
     private HashMap<String, String> locationRepresentativeHash;
     private HashMap<String, String> locationEmailHash;
 
