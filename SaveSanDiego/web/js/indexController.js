@@ -24,14 +24,13 @@ $(document).ready(function() {
 
         //create the text object
         var name = $('#nameInput').val();
-        var message = $('#messagText').val();
+        var message = $('#messageText').val();
         var user = getCookie("user");
         var location = $('#areaSelect').val();
         //send
         var toSend = {"command": "sendMail", "user": user, "name": name, "location": location, "message": message};
         $.get("ExchangeServlet", toSend, function() {
             //modal confirmation
-            alert("sent mail");
         });
     });
 
