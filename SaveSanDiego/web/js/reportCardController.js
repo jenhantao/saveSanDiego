@@ -45,5 +45,6 @@ $(document).ready(function() {
 //        $('#representativeName').text(data["representative"]);
         $('#text').text(data["message"]);
     });
+    $('#title').text("Report Card for "+location.replace("_",""))
 
 });
