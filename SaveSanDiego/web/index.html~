@@ -1,0 +1,239 @@
+<html>
+    <head>
+        <title>Saving San Diego</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+        <style type="text/css">
+
+            #share-buttons img {
+                width: 60px;
+                padding: 5px;
+                border: 0;
+                box-shadow: 0;
+                display: inline;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--        <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                         Brand and toggle get grouped for better mobile display 
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html">Saving San Diego</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">References</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>-->
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="jumbotron">
+                    <div class="container text-center">
+                        <h2>TODAY, <span id="date">date</span> IS</h2>
+                        <h1>THE DAY WE BEGIN #SAVINGSANDIEGO</h1>
+                        <h5>
+                            Three behaviors (poor diet, physical inactivity, and tobacco use)  contribute to four chronic diseases (cancer, heart disease and stroke, type 2 diabetes, and pulmonary diseases such as asthma) cause over 50 percent of all deaths worldwide. 
+                            Between 2000 and 2011 the fraction of deaths in San Diego due to these four chronic diseases has fallen from 63% to 56% of all deaths on the record. The percentages seem small, but results of public efforts are responsible for <strong>saving over 20,000 lives in a ten-year span</strong>. 
+                            With your help, if we can decrease the fraction of deaths in San Diego due to these chronic diseases to less than 50%, we could be saving an additional 1100 lives a year.
+                        </h5>
+                        <button id="dialogButton" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal"><h3>Contact Your Representative</h3></button>
+                        <p></p>
+                        <p><a style="font-size: 12px">View Your District Report Card</a></p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-center">
+                Learn the facts
+            </h2>
+            <div class="row col-md-6 col-md-offset-3">
+                <div id="imageCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                        <li data-target="#imageCarousel" data-slide-to="3"></li>
+                        <li data-target="#imageCarousel" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="data/5.png" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="data/1.png" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="data/2.png" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="data/3.png" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="data/4.png" alt="...">
+                            <div class="carousel-caption">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#imageCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#imageCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class='container'>
+            <h2>
+                Participate
+            </h2>
+            <p>
+                Add our banner to your site
+            </p>
+            <div class="row">
+                <pre id="selectable" onclick="selectText('selectable')">&lt;!--[if !(lt IE 8)]&gt;&lt;!--&gt;
+   &lt;script type="text/javascript"&gt;
+     (function(){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src=document.location.protocol+"//d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()
+   &lt;/script&gt;
+&lt;!--&lt;![endif]--&gt;</pre>
+            </div>
+            <h2>
+                Share
+            </h2>
+            <p>
+                Let your family and friends know that you're #savingsandiego
+            </p>
+            <div class='row'>
+                <div id="share-buttons">
+                    <!-- Facebook -->
+                    <a href="http://www.facebook.com/sharer.php?u=http://www.simplesharebuttons.com" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+                    <!-- Twitter -->
+                    <a href="http://twitter.com/share?url=http://www.simplesharebuttons.com&text=Simple Share Buttons" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
+                    <!-- Google+ -->
+                    <a href="https://plus.google.com/share?url=http://www.simplesharebuttons.com" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
+                    <!-- Digg -->
+                    <a href="http://www.digg.com/submit?url=http://www.simplesharebuttons.com" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/diggit.png" alt="Digg" /></a>
+                    <!-- Reddit -->
+                    <a href="http://reddit.com/submit?url=http://www.simplesharebuttons.com&title=Simple Share Buttons" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/reddit.png" alt="Reddit" /></a>
+                    <!-- LinkedIn -->
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.simplesharebuttons.com" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
+                    <!-- Pinterest -->
+                    <a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="http://www.simplesharebuttons.com/images/somacro/pinterest.png" alt="Pinterest" /></a>
+                    <!-- StumbleUpon-->
+                    <a href="http://www.stumbleupon.com/submit?url=http://www.simplesharebuttons.com&title=Simple Share Buttons" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/stumbleupon.png" alt="StumbleUpon" /></a>
+                    <!-- Email -->
+                    <a href="mailto:?Subject=Simple Share Buttons&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://www.simplesharebuttons.com"><img src="http://www.simplesharebuttons.com/images/somacro/email.png" alt="Email" /></a>
+                </div>
+            </div>
+
+            <h2>About Us</h2>
+            <p>
+                write something nice about each one of us
+            </p>
+            <h2>References</h2>
+            <p>
+                More information about how chronic disease affects the residents of San Diego County, we invite you to read the following report <a href = "http://www.co.san-diego.ca.us/hhsa/programs/phs/documents/CHS-EconomicBurdenofChronicDisease2010.pdf">“The Economic Burden of Chronic Disease in San Diego County” </a> 
+            </p>            
+            <p>
+                Additional health resources for San Diego residents:
+            </p>
+            <ul>
+                <li>
+                    <a href="http://www.livewellsd.org/">Live Well San Diego</a>
+                </li>
+                <li>
+                    <a href="http://www.sdcounty.ca.gov/hhsa/programs/phs/community_health_statistics/">County of San Diego Community Health Statistics </a>
+                </li>
+                <li>
+                    <a href="http://ask.chis.ucla.edu/main/default.asp">California Health Interview Survey (AskCHIS)</a>
+                </li>
+                <li>
+                    <a href="http://www.cdc.gov">Centers for Disease Control and Prevention</a>
+                </li>
+                <li>
+                    <a href="http://gis1.sandag.org/GeoBoundaryViewer/">Discover the districts you live in (via SANDAG)</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="formModalLabel">Contact your representative now!</h4>
+                    </div>
+                    <div class="modal-body" id='messagBody'>
+                        <div style="overflow:none; height:400px">
+                            <dl>
+                                <dt>Name</dt>
+                                <dd><input id="nameInput"/></dd>
+                                <dt>Location</dt>
+                                <dd>
+                                    <select id="areaSelect" selectedIndex=-1>
+                                        <option>area1</option>
+                                        <option>area2</option>
+                                        <option>area3</option>
+                                    </select></dd>
+                            </dl>
+                            <p id="salutation">Dear Supervisor <span id="representativeName"></span>,</p>
+                            <textarea id="messageText" style="width:100%;min-height: 250px"></textarea>
+                            <p>Thank You,</p>
+                            <p id="signature"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id='pdfButton'>Get PDF</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id='textButton'>Get Text</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id='reportCardButton'>View Report Card</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="sendButton">Send Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <footer style='background-color:#e7e7e7'>
+            <div class="container text-center">
+                <div class="container-fluid">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Saving San Diego</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Andy Gross, Jenhan Tao, and Justin Huang</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/jenhantao/saveSanDiego" rel="dct:source">https://github.com/jenhantao/saveSanDiego</a>.                    
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>       
+    <script src="js/indexController.js"></script>       
+</body>
+</html>
