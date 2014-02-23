@@ -35,9 +35,12 @@ public class ExchangeServlet extends HttpServlet {
         try {
             out = response.getWriter();
             if (command.equals("sendMail")) {
-                GoogleMail.Send("savingsandiego2014", "password1123", "justin.k.huang@gmail.com", "testing", "test message");
-                GoogleMail.Send("savingsandiego2014", "password1123", "jenhantao@gmail.com", "testing", "test message");
-
+                String recipient = "jenhantao@gmail.com"; //will get this based on location
+                String subject = "Saving San Diego"; //will get this based on location
+                String message = request.getParameter("message");
+                GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
+            } else if (command.equals("fetchData")) {
+                out.println("fetched data");
             }
         } catch (Exception e) {
             e.printStackTrace();
