@@ -27,11 +27,84 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container container-fluid">
             <div class="row">
-                <button id="sendButton" class="btn btn-primary">Send Mail</button>
+                <div class="jumbotron">
+                    <div class="container text-center">
+                        <h2>TODAY, <span id="date">date</span> IS</h2>
+                        <h1>THE DAY WE SAVE SAN DIEGO</h1>
+                        <h2>FROM CHRONIC DISEASES</h2>
+                        <button id="dialogButton" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formModal">Contact Your Representative</button>
+                        <p></p>
+                        <p><a style="font-size: 12px">View Your District Report Card</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                misc facts and example graphs
+            </div>
+            <div class="row">
+                information about banner
+            </div>
+
+        </div>
+
+
+        <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="formModalLabel">Contact your representative now!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div style="overflow:none; height:400px">
+                            <dl>
+                                <dt>Name</dt>
+                                <dd><input id="nameInput"/></dd>
+                                <dt>District</dt>
+                                <dd>
+                                    <select id="areaSelect">
+                                        <option>area1</option>
+                                        <option>area2</option>
+                                        <option>area3</option>
+                                    </select></dd>
+                            </dl>
+                            <p id="salutation">Dear Supervisor [name],</p>
+                            <textarea id="messageText" style="width:100%;min-height: 250px">
+As a resident of the [SRA name] subregional area in San Diego County and as your constituent, I am deeply concerned about the health and well being of my family and my community’s health. With chronic diseases such as cancer, heart disease, type 2 diabetes, and pulmonary disease affecting so many of those around us, we need real reform and initiatives to put a stop to these terrible diseases. Some of the statistics from my subregional area I have found particularly concerning are:
+ 
+[Insert Statistics here]
+ 
+These chronic diseases affect way too many San Diegans and cost our cities and county too much. Therefore, we must work quickly to enact initiatives that encourage San Diegans to eat healthier, be active, and limit tobacco use. The current trends of San Diego’s health are unsustainable for a healthy, safe, and thriving San Diego. We cannot stand idly by as the health of our neighbors suffer; we must take action now.
+                            </textarea>
+                            <p>Thank You</p>
+                            <p id="signature">[user's name]</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id='pdfButton'>Get PDF</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id='textButton'>Get Text</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" id='reportCardButton'>View Report Card</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="sendButton">Send Email</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <footer>
+            <div class="container text-center">
+                <div class="container-fluid">
+                    <div class="row">
+                        social media banners
+                    </div>
+                    <div class="row">
+                        license
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>       
         <script src="js/indexController.js"></script>       
