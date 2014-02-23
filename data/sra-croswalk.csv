@@ -1,0 +1,42 @@
+id,sra_id,sra_name,sra_3450
+1,1,CENTRAL SAN DIEGO,Central San Diego
+2,2,PENINSULA,Peninsula
+3,3,CORONADO,Coronado
+4,4,NATIONAL CITY,National City
+5,5,SOUTHEASTERN SAN DIEGO,Southeastern San Diego
+6,6,MID-CITY,Mid City
+7,10,KEARNY MESA,Kearny Mesa
+8,11,COASTAL,Coastal
+9,12,UNIVERSITY,University
+10,13,DEL MAR-MIRA MESA,Del Mar/Mira Mesa
+11,14,NORTH SAN DIEGO,North San Diego
+12,15,POWAY,Poway
+13,16,MIRAMAR,Miramar
+14,17,ELLIOTT-NAVAJO,Elliot-Navajo
+15,20,SWEETWATER,Sweetwater
+16,21,CHULA VISTA,Chula Vista
+17,22,SOUTH BAY,South Bay
+18,30,JAMUL,Jamul
+19,31,SPRING VALLEY,Spring Valley
+20,32,LEMON GROVE,Lemon Grove
+21,33,LA MESA,La Mesa
+22,34,EL CAJON,El Cajon
+23,35,SANTEE,Santee
+24,36,LAKESIDE,Lakeside
+25,37,HARBISON CREST,Harbison Crest
+26,38,ALPINE,Alpine
+27,39,RAMONA,Ramona
+28,40,SAN DIEGUITO,San Dieguito
+29,41,CARLSBAD,Carlsbad
+30,42,OCEANSIDE,Oceanside
+31,43,PENDLETON,Pendleton
+32,50,ESCONDIDO,Escondido
+33,51,SAN MARCOS,San Marcos
+34,52,VISTA,Vista
+35,53,VALLEY CENTER,Valley Center
+36,54,PAUMA,Pauma
+37,55,FALLBROOK,Fallbrook
+38,60,PALOMAR-JULIAN,Palomar Julian
+39,61,LAGUNA-PINE VALLEY,Laguna-Pine Valley
+40,62,MOUNTAIN EMPIRE,Mountain Empire
+41,63,ANZA-BORREGO SPRINGS,Anza Borrego Springs

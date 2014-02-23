@@ -1,0 +1,49 @@
+SRA Number,SRA Name,City,City Adjustment Factor
+38,Alpine,Unincorporated,1
+63,Anza-Borrego,Unincorporated,1
+41,Carlsbad,Carlsbad,1
+1,Central SD,San Diego,1
+21,Chula Vista,Chula Vista,1
+11,Coastal,San Diego,1
+3,Coronado,Coronado,1
+13,Del Mar-Mira Mesa,San Diego,0.9735925214
+13,Del Mar-Mira Mesa,Del Mar,0.0264074786
+34,El Cajon,El Cajon,0.7988532515
+34,El Cajon,Unincorporated,0.2011467485
+17,Elliot-Navajo,San Diego,1
+50,Escondido,Escondido,1
+55,Fallbrook,Unincorporated,1
+37,Harbison Crest,Unincorporated,1
+30,Jamul,Unincorporated,1
+10,Kearny Mesa,San Diego,1
+33,La Mesa,La Mesa,1
+61,Laguna-Pine Valley,Unincorporated,1
+36,Lakeside,Unincorporated,1
+32,Lemon Grove,Lemon Grove,1
+6,Mid-City,San Diego,1
+16,Miramar,San Diego,1
+62,Mountain Empire,Unincorporated,1
+4,National City,National City,1
+14,North SD,San Diego,1
+42,Oceanside,Oceanside,1
+60,Palomar-Julian,Unincorporated,1
+54,Pauma,Unincorporated,1
+43,Pendleton,Unincorporated,1
+2,Peninsula,San Diego,1
+15,Poway,Poway,1
+39,Ramona,Unincorporated,1
+40,San Dieguito,Unincorporated,0.2309939657
+40,San Dieguito,Encinitas,0.632309196
+40,San Dieguito,Solana Beach,0.1366968383
+51,San Marcos,San Marcos,1
+35,Santee,Santee,1
+22,South Bay,San Diego,0.5276143256
+22,South Bay,Imperial Beach,0.1951168893
+22,South Bay,Unincorporated,0.2772687851
+5,Southeastern SD,San Diego,1
+31,Spring Valley,Unincorporated,1
+20,Sweetwater,Unincorporated,0.2781031769
+20,Sweetwater,Chula Vista,0.7218968231
+12,University,San Diego,1
+53,Valley Center,Unincorporated,1
+52,Vista,Vista,1
