@@ -11,28 +11,44 @@ $(document).ready(function() {
         8: "September",
         9: "October",
         10: "November",
-        11: "December"}
+        11: "December"};
     var d = new Date();
     var day = d.getDate();
     var month = months[d.getMonth()].toUpperCase();
     var year = d.getFullYear();
     $('#date').text(month + ' ' + day + ', ' + year);
-    //event handler for modal dialog
 
     //event handler for send button
     $('#sendButton').click(function() {
         //do some basic validation
 
         //create the text object
+        var name = $('#nameInput').val();
         var message = $('#messagText').val();
+        var user = getCookie("user");
+        var location = $('#areaSelect').val();
         //send
-        $.get("ExchangeServlet", {"command": "sendMail", "message": message}, function() {
+        var toSend = {"command": "sendMail", "user": user, "name": name, "location": location, "message": message};
+        $.get("ExchangeServlet", toSend, function() {
             //modal confirmation
             alert("sent mail");
         });
     });
 
+    //event handler for name input
+    $('#nameInput').keyup(function() {
+        $('#signature').text($('#nameInput').val());
+    });
 
+    //event handler for location select
+    $('#areaSelect').change(function() {
+        var area = $(this).val();
+        $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area}, function(data) {
+            $('#representativeName').text(data["representative"]);
+            $('#messageText').val(data["message"]);
+        });
+        $('#messageBody').removeClass("hidden");
+    });
 
     //cookie functions
     function setCookie(c_name, value, exdays) {
@@ -67,5 +83,15 @@ $(document).ready(function() {
         date.setDate(date.getDate() - 1);
         document.cookie = escape(key) + '=;expires=' + date;
     }
+
+    function generateID() {
+        var toReturn = "";
+        var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 10; i++)
+            toReturn += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+        return toReturn;
+    }
+
+    setCookie("user", generateID(), 1000);
 
 });

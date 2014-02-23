@@ -18,26 +18,26 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Saving San Diego</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">References</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <!--        <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                         Brand and toggle get grouped for better mobile display 
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html">Saving San Diego</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">References</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>-->
         <div class="container container-fluid">
             <div class="row">
                 <div class="jumbotron">
@@ -54,6 +54,9 @@
 
         </div>
         <div class='container'>
+            Three behaviors (poor diet, physical inactivity, and tobacco use)  contribute to four chronic diseases (cancer, heart disease and stroke, type 2 diabetes, and pulmonary diseases such as asthma) cause over 50 percent of all deaths worldwide. 
+            Between 2000 and 2011 the fraction of deaths in San Diego due to these four chronic diseases has fallen from 63% to 56% of all deaths on the record. The percentages seem small, but results of public efforts are responsible for <strong>saving over 20,000 lives in a ten-year span</strong>. 
+            With your help, if we can decrease the fraction of deaths in San Diego due to these chronic diseases to less than 50%, we could be saving an additional 1100 lives a year.
             <h2>
                 Facts and examples
             </h2>
@@ -120,6 +123,36 @@
                     <a href="mailto:?Subject=Simple Share Buttons&Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://www.simplesharebuttons.com"><img src="http://www.simplesharebuttons.com/images/somacro/email.png" alt="Email" /></a>
                 </div>
             </div>
+
+            <h2>About Us</h2>
+            <p>
+                write something nice about each one of us
+            </p>
+            <h2>References</h2>
+            <p>
+                More information about how chronic disease affects the residents of San Diego County, we invite you to read the following report <a href = "http://www.co.san-diego.ca.us/hhsa/programs/phs/documents/CHS-EconomicBurdenofChronicDisease2010.pdf">“The Economic Burden of Chronic Disease in San Diego County” </a> 
+            </p>            
+            <p>
+                Additional health resources for San Diego residents:
+            </p>
+            <ul>
+                <li>
+                    <a href="http://www.livewellsd.org/">Live Well San Diego</a>
+                </li>
+                <li>
+                    <a href="http://www.sdcounty.ca.gov/hhsa/programs/phs/community_health_statistics/">County of San Diego Community Health Statistics </a>
+                </li>
+                <li>
+                    <a href="http://ask.chis.ucla.edu/main/default.asp">California Health Interview Survey (AskCHIS)</a>
+                </li>
+                <li>
+                    Centers for Disease Control and Prevention [http://www.cdc.gov]
+                </li>
+                <li>
+                    Discover the districts you live in (via SANDAG) [http://gis1.sandag.org/GeoBoundaryViewer/]
+
+                </li>
+            </ul>
         </div>
 
         <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
@@ -129,29 +162,23 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="formModalLabel">Contact your representative now!</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id='messagBody'>
                         <div style="overflow:none; height:400px">
                             <dl>
                                 <dt>Name</dt>
                                 <dd><input id="nameInput"/></dd>
-                                <dt>District</dt>
+                                <dt>Location</dt>
                                 <dd>
-                                    <select id="areaSelect">
+                                    <select id="areaSelect" selectedIndex=-1>
                                         <option>area1</option>
                                         <option>area2</option>
                                         <option>area3</option>
                                     </select></dd>
                             </dl>
-                            <p id="salutation">Dear Supervisor [name],</p>
-                            <textarea id="messageText" style="width:100%;min-height: 250px">
-As a resident of the [SRA name] subregional area in San Diego County and as your constituent, I am deeply concerned about the health and well being of my family and my community’s health. With chronic diseases such as cancer, heart disease, type 2 diabetes, and pulmonary disease affecting so many of those around us, we need real reform and initiatives to put a stop to these terrible diseases. Some of the statistics from my subregional area I have found particularly concerning are:
- 
-[Insert Statistics here]
- 
-These chronic diseases affect way too many San Diegans and cost our cities and county too much. Therefore, we must work quickly to enact initiatives that encourage San Diegans to eat healthier, be active, and limit tobacco use. The current trends of San Diego’s health are unsustainable for a healthy, safe, and thriving San Diego. We cannot stand idly by as the health of our neighbors suffer; we must take action now.
-                            </textarea>
-                            <p>Thank You</p>
-                            <p id="signature">[user's name]</p>
+                            <p id="salutation">Dear Supervisor <span id="representativeName"></span>,</p>
+                            <textarea id="messageText" style="width:100%;min-height: 250px"></textarea>
+                            <p>Thank You,</p>
+                            <p id="signature"></p>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -177,7 +204,6 @@ These chronic diseases affect way too many San Diegans and cost our cities and c
     </footer>
     <script src="js/jquery-2.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>       
-    <script src="js/bootstrap-responsive.min.js"></script>       
     <script src="js/indexController.js"></script>       
 </body>
 </html>
