@@ -40,32 +40,35 @@ public class ExchangeServlet extends HttpServlet {
         if (locationRepresentativeHash == null) {
             initRepresentatives();
         }
+        if (locationEmailHash == null) {
+            initEmails();
+        }
         response.setContentType("application/json");
         String command = request.getParameter("command");
         PrintWriter out = null;
         try {
             out = response.getWriter();
             if (command.equals("sendMail")) {
-                String recipient = "jenhantao@gmail.com"; //will get this based on location
-                String subject = "Saving San Diego"; //will get this based on location
+                String recipient = locationEmailHash.get(request.getParameter("location"));
+                String subject = request.getParameter("name") + " Wants You to Help Save San Diego"; //will get this based on location
                 String message = request.getParameter("message");
                 GoogleMail.Send("savingsandiego2014", "password1123", recipient, subject, message);
             } else if (command.equals("getAreaEmail")) {
                 //return supervisor name and form letter
                 String location = request.getParameter("location");
                 String filePath = fileLocationHash.get(location + "_report");
-                filePath = fileLocationHash.get(location+"_email");
+                filePath = fileLocationHash.get(location + "_email");
                 File file = new File(filePath);
                 BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()));
                 String message = "";
                 String line = reader.readLine();
                 while (line != null) {
-                    message = message + line+"\n";
+                    message = message + line + "\n";
                     line = reader.readLine();
                 }
                 String representative = locationRepresentativeHash.get(location);
-                JSONObject toReturn= new JSONObject();
-                toReturn.put("representative",representative);
+                JSONObject toReturn = new JSONObject();
+                toReturn.put("representative", representative);
                 toReturn.put("message", message);
                 out.print(toReturn.toString());
             } else if (command.equals("getAreaReportCard")) {
@@ -140,11 +143,19 @@ public class ExchangeServlet extends HttpServlet {
 
     private void initRepresentatives() {
         locationRepresentativeHash = new HashMap();
-        locationRepresentativeHash.put("area1","test representative");
-        locationRepresentativeHash.put("area2","test representative");
-        locationRepresentativeHash.put("area3","test representative");
+        locationRepresentativeHash.put("area1", "test representative");
+        locationRepresentativeHash.put("area2", "test representative");
+        locationRepresentativeHash.put("area3", "test representative");
+    }
+
+    private void initEmails() {
+        locationEmailHash = new HashMap();
+        locationEmailHash.put("area1", "jenhantao@gmail.com");
+        locationEmailHash.put("area2", "justin.k.huang@gmail.com");
+        locationEmailHash.put("area3", "test representative");
     }
     private HashMap<String, String> fileLocationHash = null;
     private HashMap<String, String> locationRepresentativeHash;
+    private HashMap<String, String> locationEmailHash;
 
 }

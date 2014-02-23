@@ -47,7 +47,6 @@ $(document).ready(function() {
             $('#representativeName').text(data["representative"]);
             $('#messageText').val(data["message"]);
         });
-        $('#messageBody').removeClass("hidden");
     });
 
     //cookie functions
