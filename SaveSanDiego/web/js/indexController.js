@@ -43,10 +43,11 @@ $(document).ready(function() {
 
     //event handler for location select
     $('#areaSelect').change(function() {
-        var area = $(this).val().replace(/ /g, '_');
-        var district = areaMap[area]
+        var location = $(this).val().replace(/ /g, '_');
+        var district = areaMap[location]
+        setCookie("location", location, 1000);
 
-        $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area, "district": district}, function(data) {
+        $.get("ExchangeServlet", {"command": "getAreaEmail", "location": location, "district": district}, function(data) {
             $('#representativeName').text(data["representative"]);
             $('#messageText').val(data["message"]);
         });
