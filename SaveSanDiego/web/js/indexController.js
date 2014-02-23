@@ -41,7 +41,8 @@ $(document).ready(function() {
 
     //event handler for location select
     $('#areaSelect').change(function() {
-        var area = $(this).val();
+        var area = $(this).val().replace(/ /g,'');
+        alert(area)
         $.get("ExchangeServlet", {"command": "getAreaEmail", "location": area}, function(data) {
             $('#representativeName').text(data["representative"]);
             $('#messageText').val(data["message"]);
